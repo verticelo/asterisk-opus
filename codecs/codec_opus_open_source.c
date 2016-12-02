@@ -145,6 +145,7 @@ static int opus_encoder_construct(struct ast_trans_pvt *pvt, int sampling_rate)
 	} /* else we use the default: OPUS_AUTO */
 	status = opus_encoder_ctl(opvt->opus, OPUS_SET_VBR(vbr));
 	status = opus_encoder_ctl(opvt->opus, OPUS_SET_INBAND_FEC(fec));
+	status = opus_encoder_ctl(opvt->opus, OPUS_SET_PACKET_LOSS_PERC(10));
 	status = opus_encoder_ctl(opvt->opus, OPUS_SET_DTX(dtx));
 
 	opvt->sampling_rate = sampling_rate;
